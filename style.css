@@ -1,0 +1,399 @@
+/* css Variables :-  koi value ne properties ma define kari ne use karva */
+
+:root{
+    --primary : #141414;
+    --light : #F3F3F3;
+    --dark : #686868;
+    --red : rgba(244,67,54,1);
+    --blue : rgba(33,150,243,1)
+}
+
+html,body{
+    width: 100vw;
+    min-height: 100vw;
+    margin: 0; 
+    padding: 0;
+    background-color: var(--primary); /*Variable use karyo*/
+    color: var(--light);
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    line-height: 1.4;
+}
+
+img{
+    max-width: 100%;
+}
+
+h1{
+    padding-top: 60px;
+}
+
+.wrapper{
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER */
+
+header{
+    padding: 20px 20px 0 20px;
+    position: fixed;
+    top: 0;
+    display: grid;
+        /* Grid use thase */
+    grid-gap: 5px; 
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: "nt mn mn sb . . . ";
+    background-color: var(--primary);
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.netflixLogo{
+    grid-area: nt;
+    object-fit: cover;
+    width: 100px;
+    max-height: 100%;
+    padding-left: 30px;
+    padding-top: 0px;
+}
+
+.netflixLogo img{
+    height: 35px;
+}
+
+#logo{
+    color: #e50914;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav{
+    grid-area: mn; /* header ne display grid api 6 mate header ni ander avla ne display grid karya vage pan grid no use thy*/
+    padding: 0 30px 0 20px;
+}
+
+.main-nav a{
+    color: var(--light);
+    text-decoration: none;
+    margin: 5px;
+}
+
+.main-nav a:hover{
+    color: var(--dark);
+}
+
+.sub-nav {
+    grid-area: sb;
+    padding: 0 40px 0 40px;
+}
+
+.sub-nav a{
+    color: var(--light);
+    text-decoration: none;
+    margin: 5px;
+}
+
+.sub-nav a:hover{
+    color: var(--dark);
+}
+
+
+
+/* MAIN CONTIANER */
+
+.main-container{
+    padding: 50px;
+}
+
+.box,.box2{
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(6, minmax(100px,4fr));
+}
+
+.box a, .box2 a{
+    transition: transform .3s;
+}
+
+.box a:hover ,.box2 a:hover{
+    transition: transform .3s;
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.1);
+}
+
+.box img{
+    border-radius: 2px;
+    min-height: 110%;
+}
+
+.box2 img{
+    border-radius: 2px;
+    min-height: 100%;
+}
+
+
+/* LINKS */
+
+.link{
+    padding: 50px;
+}
+
+.sub-links ul{
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.sub-links a{
+    color: var(--dark);
+    text-decoration: none;
+}
+
+.sub-links a:hover{
+    color: var(--dark);
+    text-decoration: underline;
+}
+
+.logos a{
+    padding: 10px;
+}
+
+/* Social icons */
+.logos {
+    width: 100%;
+    min-height: 50vh;
+        
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, 25vh);
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .icon-3d {
+    padding: 10px;
+    -webkit-animation: icon3d 200ms 10;
+    animation: icon3d 200ms 10;
+    color: #fff;
+}
+    .icon-3d:hover {
+      -webkit-animation: icon3d 200ms infinite !important;
+            animation: icon3d 200ms infinite;
+}  
+  
+  
+  @keyframes icon3d {
+    0% {
+      text-shadow: 5px 4px red, -5px -6px var(--blue);
+    }
+    25% {
+      text-shadow: -5px -6px var(--red), 5px 4px var(--blue);
+    }
+    50% {
+      text-shadow: 5px -4px var(--red), -8px 4px var(--blue);
+    }
+    75% {
+      text-shadow: -8px -4px var(--red), -5px -4px var(--blue);
+    }
+    100% {
+      text-shadow: -5px 0 var(--red), 5px -4px var(--blue);
+    }
+  }
+
+
+
+/* FOOTER */
+
+footer{
+    padding: 20px;
+    text-align: center;
+    color: var(--dark);
+    margin: 10px;
+}
+
+/* MEDIA QUERIES */
+
+@media(max-width: 900px){
+    header{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:  
+        "nt nt nt . . . sb . . ."
+        "mn mn mn mn mn mn  mn mn mn mn";
+    }
+
+    .box{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(4, minmax(100px, 1fr));
+    }
+}
+
+
+@media(max-width: 700px){
+    header{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:  
+        "nt nt nt . . . sb . . ."
+        "mn mn mn mn mn mn  mn mn mn mn";
+    }
+
+    .box{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+    }
+
+    .sub-links ul{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .logos{
+        width: 100%;
+        min-height: 50vh;
+            
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+    }
+
+}
+
+@media (max-width: 500px){
+    .wrapper{
+        font-size: 15px;
+    }
+
+    header{
+        margin: 0;
+        padding: 20px 0 0 0;
+        position: static;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+        "nt"
+        "mn"
+        "sb";
+        text-align: center;
+    }
+
+    .netflixLogo{
+        max-width: 100%;
+        margin : auto;
+        padding-right: 20px;
+    }
+
+    .main-nav{
+        display: grid;
+        grid-gap: 0px;
+        grid-template-columns: repeat(1, 1fr);
+        text-align: center;
+    }
+
+    h1{
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .box{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(1,1fr);
+        text-align: center;
+    }
+
+    .box a:hover{
+        transition: transform .3s;
+        -ms-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1.2);
+    }
+
+    .logos{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+    }
+
+    .logos{
+        width: 100%;
+        min-height: 50vh;
+            
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+    }
+
+    .sub-links ul{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
+        text-align: center;
+        font-size: 15px;
+    }
+}
+
+@media ( min-height:1100px),  (max-height: 1400px){
+    .logos{
+        width: 100%;
+        min-height: 50vh;
+            
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: grid;
+        grid-gap: 15px;
+        grid-template-columns: repeat(4, 1fr);
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+    }
+
+}
